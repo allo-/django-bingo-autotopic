@@ -3,9 +3,10 @@ from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
 
-from django.db.models.signals import post_save
+from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from bingo.models import Game
+from bingo import times
 
 
 class GameDescription(models.Model):
@@ -36,19 +37,19 @@ class GameDescription(models.Model):
                 _("Interval overlaps with another description."))
 
 
-@receiver(post_save, sender=Game)
+@receiver(pre_save, sender=Game)
 def set_description(sender, instance, **kwargs):
     if not instance.description and \
-            not hasattr(instance, "set_description_call"):
+            not hasattr(instance, "set_description_called"):
 
+        current_time = times.now()
         game_descs = GameDescription.objects.filter(
             site=instance.site,
-            start_time__lte=instance.created,
-            end_time__gte=instance.created
+            start_time__lte=current_time,
+            end_time__gte=current_time
             )
-        # it should be 0 or 1, but with >=1
-        # but with >= we avoid not setting the desc if there are more objects
+        # it should be 0 or 1,
+        # but with >= 1 we avoid not setting the desc if there are more objects
         if game_descs.count() >= 1:
             instance.description = game_descs[0].description
-        instance.set_description_call = True
-        instance.save()
+        instance.set_description_called = True
