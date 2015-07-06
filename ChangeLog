@@ -1,3 +1,7 @@
+django-bingo 1.0.3 (2015-07-06):
+	* added __unicode__ to the GameDescription model for nicer description in
+	  the admin interface and python shell
+
 django-bingo 1.0.2 (2014-06-19):
 	* use pre_save instead of post_save and get the time for the description
 	  via times.now()
