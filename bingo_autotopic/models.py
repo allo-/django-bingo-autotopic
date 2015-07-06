@@ -36,6 +36,9 @@ class GameDescription(models.Model):
             raise ValidationError(
                 _("Interval overlaps with another description."))
 
+    def __unicode__(self):
+       return u"Game Description for {start:s} (site: {site:s})".format(start=self.start_time.strftime("%Y-%m-%d %H:%M"), site=self.site)
+
 
 @receiver(pre_save, sender=Game)
 def set_description(sender, instance, **kwargs):
