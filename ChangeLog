@@ -1,4 +1,4 @@
-django-bingo-autotopic 1.0.4 ():
+django-bingo-autotopic 1.0.4 (2015-07-23):
 	* added settings AUTOTOPIC_DEFAULT_START_TIME and AUTOTOPIC_DEFAULT_END_TIME
 
 django-bingo-autotopic 1.0.3 (2015-07-06):
