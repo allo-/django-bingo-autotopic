@@ -1,1 +1,7 @@
 a simple app to set the description of django-bingo games automatically based on the start / end time of the game.
+
+Settings:
+---------
+
+- ``AUTOTOPIC_DEFAULT_START_TIME = (hour, minute, second)`` defines a default start time for shows
+- ``AUTOTOPIC_DEFAULT_END_TIME = (hour, minute, second)`` defines a default end time for shows

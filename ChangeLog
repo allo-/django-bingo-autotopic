@@ -1,10 +1,13 @@
-django-bingo 1.0.3 (2015-07-06):
+django-bingo-autotopic 1.0.4 ():
+	* added settings AUTOTOPIC_DEFAULT_START_TIME and AUTOTOPIC_DEFAULT_END_TIME
+
+django-bingo-autotopic 1.0.3 (2015-07-06):
 	* added __unicode__ to the GameDescription model for nicer description in
 	  the admin interface and python shell
 
-django-bingo 1.0.2 (2014-06-19):
+django-bingo-autotopic 1.0.2 (2014-06-19):
 	* use pre_save instead of post_save and get the time for the description
 	  via times.now()
 
-django-bingo 1.0.1 (2014-02-20):
+django-bingo-autotopic 1.0.1 (2014-02-20):
 	* Display description, times and site in the admin interface list
