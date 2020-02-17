@@ -66,7 +66,7 @@ class GameDescription(models.Model):
                 _("Interval overlaps with another description."))
 
     def __unicode__(self):
-        return u"Game Description for {start:s} (site: {site:s})".format(
+        return "Game Description for {start:s} (site: {site:s})".format(
             start=self.start_time.strftime("%Y-%m-%d %H:%M"), site=self.site)
 
 
